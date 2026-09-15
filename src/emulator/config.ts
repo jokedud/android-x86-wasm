@@ -38,7 +38,9 @@ export const DEFAULT_CONFIG: VmConfig = {
   wasmUrl: DEFAULT_WASM_URL,
   biosUrl: DEFAULT_BIOS_URL,
   vgaBiosUrl: DEFAULT_VGA_BIOS_URL,
-  guestImage: { kind: "none", url: "", streaming: false },
+  // Start with the offline built-in boot sector so Power On never depends on
+  // an external ISO, CORS headers, or a large mobile download.
+  guestImage: { kind: "bootsector", url: "", streaming: false },
 };
 
 // Internet Archive serves these public historical images over HTTPS with
